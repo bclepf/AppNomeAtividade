@@ -24,5 +24,9 @@ namespace AppNomesBr.Domain.Entities
         [NotNull]
         [Column("Ranking")]
         public int Ranking { get; set; }
+
+        [NotNull]
+        [Column("Sexo")]
+        public string Sexo { get; set; } = string.Empty;
     }
 }

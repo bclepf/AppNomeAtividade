@@ -41,7 +41,7 @@ namespace AppNomesBr.Service
             }
         }
 
-        public async Task InserirNovoRegistroNoRanking(string nome)
+        public async Task InserirNovoRegistroNoRanking(string nome, string sexo)
         {
             try
             {
@@ -54,6 +54,7 @@ namespace AppNomesBr.Service
                 var novoRegistro = new NomesBr
                 {
                     Nome = nome,
+                    Sexo = sexo,
                     Periodo = FormataPeriodo(resultado),
                     Ranking = 1,
                     Frequencia = resultado != null ? resultado.Sum(x => x.Frequencia) : 0
@@ -88,7 +89,8 @@ namespace AppNomesBr.Service
                 {
                     Frequencia = consultaTodos[i].Frequencia,
                     Nome = consultaTodos[i].Nome,
-                    Ranking = consultaTodos[i].Ranking
+                    Ranking = consultaTodos[i].Ranking,
+                    Sexo = consultaTodos[i].Sexo
                 };
 
                 retorno[0].Resultado?.Add(novo);

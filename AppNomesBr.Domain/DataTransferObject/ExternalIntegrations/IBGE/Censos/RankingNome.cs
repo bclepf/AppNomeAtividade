@@ -12,5 +12,7 @@ namespace AppNomesBr.Domain.DataTransferObject.ExternalIntegrations.IBGE.Censos
 
         [JsonPropertyName("ranking")]
         public int Ranking { get; set; }
+
+        public string Sexo { get; set; } = string.Empty;
     }
 }

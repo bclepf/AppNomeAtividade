@@ -1,35 +1,59 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppNomesBr.Pages.RankingNomesBrasileiros"
-             Title="Raking Nomes BR">
+<ContentPage
+    x:Class="AppNomesBr.Pages.RankingNomesBrasileiros"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Raking Nomes BR">
     <ScrollView>
         <VerticalStackLayout>
-            <CollectionView x:Name="GrdNomesBr" 
-                    VerticalOptions="FillAndExpand">
+            <CollectionView x:Name="GrdNomesBr" VerticalOptions="FillAndExpand">
                 <CollectionView.Header>
                     <Grid Padding="5" BackgroundColor="LightBlue">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Text="Nomes" FontSize="18" FontAttributes="Bold" Grid.Column="0" />
-                        <Label Text="Ocorrências" FontSize="18" FontAttributes="Bold" Grid.Column="1" />
-                        <Label Text="Pos. Ranking" FontSize="18" FontAttributes="Bold" Grid.Column="2" />
+                        <Label
+                            Grid.Column="0"
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            Text="Nomes" />
+                        <Label
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            Text="Ocorrências" />
+                        <Label
+                            Grid.Column="2"
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            Text="Pos. Ranking" />
                     </Grid>
                 </CollectionView.Header>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="5">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Label Text="{Binding Nome}" FontSize="14" FontAttributes="Bold" Grid.Column="0" />
-                            <Label Text="{Binding Frequencia}" FontSize="14" FontAttributes="Bold" Grid.Column="1" />
-                            <Label Text="{Binding Ranking}" FontSize="14" FontAttributes="Bold" Grid.Column="2" />
+                            <Label
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                Text="{Binding Nome}" />
+                            <Label
+                                Grid.Column="1"
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                Text="{Binding Frequencia}" />
+                            <Label
+                                Grid.Column="2"
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                Text="{Binding Ranking}" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
