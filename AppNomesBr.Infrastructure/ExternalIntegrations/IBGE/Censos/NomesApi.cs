@@ -23,25 +23,27 @@ namespace AppNomesBr.Infrastructure.ExternalIntegrations.IBGE.Censos
             var response = await httpClient.GetAsync(rankingEndpoint);
             return await response.Content.ReadAsStringAsync();
         }
-         public async Task<string> RetornaCensosNomesRankingFiltros(string codigoIbge, string sexoOpc)
-    {
-        string url = rankingEndpoint;
-
-        // Verifica se o sexo foi selecionado
-        if (!string.IsNullOrEmpty(sexoOpc) && sexoOpc != "Todos")
+        public async Task<string> RetornaCensosNomesRankingFiltros(string municipioEntry, string sexoOpc)
         {
-            url += sexoSelecionado + sexoOpc;
-        }
+            string url = rankingEndpoint;
 
-        // Verifica se o município foi selecionado
-        if (!string.IsNullOrEmpty(codigoIbge))
-        {
-            url += municipioSelecionado + codigoIbge;
-        }
+            // Verifica se o sexo foi selecionado
+            if (!string.IsNullOrEmpty(sexoOpc) && sexoOpc != "Todos")
+            {
+                url += sexoSelecionado + sexoOpc;
+            }
 
-        var response = await httpClient.GetAsync(url);
-        return await response.Content.ReadAsStringAsync();
-    }
+            // Verifica se o município foi selecionado
+            if (!string.IsNullOrEmpty(municipioEntry))
+            {
+                // Alterna o valor de municipioSelecionado se sexoOpc for "Todos"
+                string prefixoMunicipio = sexoOpc == "Todos" ? "?" : "&";
+                url += prefixoMunicipio + "localidade=" + municipioEntry; // Usando o código IBGE
+            }
+
+            var response = await httpClient.GetAsync(url);
+            return await response.Content.ReadAsStringAsync();
+        }
         public async Task<string> RetornaCensosNomesPeriodo(string nome)
         {
             var url = baseUrl + nome;
