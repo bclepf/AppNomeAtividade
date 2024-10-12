@@ -40,6 +40,25 @@ namespace AppNomesBr.Service
                 return [];
             }
         }
+        public async Task<RankingNomesRoot[]> ListaTop20PorMunicipioESexo(string codigoIbge, string sexo)
+        {
+            try
+            {
+                // Chamando o método que agora aceita código IBGE
+                var result = await ibgeNomesApiService.RetornaCensosNomesRankingFiltros(codigoIbge, sexo);
+                var rankingNomesRoot = JsonSerializer.Deserialize<RankingNomesRoot[]>(result);
+
+                if (rankingNomesRoot == null)
+                    throw new InvalidDataException("Método: \"" + nameof(ListaTop20PorMunicipioESexo) + "\" a variável \"rankingNomesRoot\" é nula!");
+
+                return rankingNomesRoot;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "[ERRO]: {Message}", ex.Message);
+                return Array.Empty<RankingNomesRoot>(); // Retorna um array vazio em caso de erro
+            }
+        }
 
         public async Task InserirNovoRegistroNoRanking(string nome, string sexo)
         {

@@ -6,6 +6,7 @@ namespace AppNomesBr.Domain.Interfaces.Services
     {
         Task<RankingNomesRoot[]> ListaTop20Nacional();
         Task<RankingNomesRoot[]> ListaMeuRanking();
-        Task InserirNovoRegistroNoRanking(string nome, string sexo);
+        Task<RankingNomesRoot[]> ListaTop20PorMunicipioESexo(string municipio, string sexo);
+        Task InserirNovoRegistroNoRanking(string codigoIbge, string sexo);
     }
 }

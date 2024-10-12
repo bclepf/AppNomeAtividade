@@ -3,34 +3,51 @@
     x:Class="AppNomesBr.Pages.RankingNomesBrasileiros"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Raking Nomes BR">
+    Title="Ranking Nomes BR">
+
     <ScrollView>
         <VerticalStackLayout>
             <CollectionView x:Name="GrdNomesBr" VerticalOptions="FillAndExpand">
                 <CollectionView.Header>
-                    <Grid Padding="5" BackgroundColor="LightBlue">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label
-                            Grid.Column="0"
-                            FontAttributes="Bold"
-                            FontSize="18"
-                            Text="Nomes" />
-                        <Label
-                            Grid.Column="1"
-                            FontAttributes="Bold"
-                            FontSize="18"
-                            Text="Ocorrências" />
-                        <Label
-                            Grid.Column="2"
-                            FontAttributes="Bold"
-                            FontSize="18"
-                            Text="Pos. Ranking" />
-                    </Grid>
+                    <StackLayout>
+                        <Entry x:Name="MunicipioEntry" Placeholder="Insira o Município" />
+
+                        <StackLayout>
+                            <Label Text="Escolha uma opção:" />
+                            <StackLayout Orientation="Horizontal">
+                                <RadioButton Content="Todos" GroupName="SexoOpc" IsChecked="True"/>
+                                <RadioButton x:Name="SexoMRadioButton" Content="M" GroupName="SexoOpc"/>
+                                <RadioButton Content="F" GroupName="SexoOpc" x:Name="SexoFRadioButton"/>
+                                
+                            </StackLayout>
+                        </StackLayout>
+                        <Button x:Name="BtnAtualizar" Text="Atualizar Listagem" Margin="10" CornerRadius="15"/>
+
+                        <Grid Padding="5" BackgroundColor="LightBlue">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Text="Nomes" />
+                            <Label
+                                Grid.Column="1"
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Text="Ocorrências" />
+                            <Label
+                                Grid.Column="2"
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Text="Pos. Ranking" />
+                        </Grid>
+                    </StackLayout>
                 </CollectionView.Header>
+
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="5">
