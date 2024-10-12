@@ -5,18 +5,17 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Meu Ranking">
     <VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="Inserir o nome"
-            VerticalOptions="Center" />
+        <Label HorizontalOptions="Center" Text="Insira o nome" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" Margin="10 0 0 0"/>
 
-        <Entry x:Name="TxtNome" Placeholder="Pedro|Maria|Ana|Joao" />
+        <Entry x:Name="TxtNome" Placeholder="Pedro|Maria|Ana|Joao"  HorizontalTextAlignment="Center" Margin="0 100"/>
 
-        <Picker x:Name="PKSX" Title="Sexo" />
+        <Label Text="Escolha o Sexo para Registro" FontAttributes="Bold" FontSize="18" HorizontalOptions="Center" Margin="20 0 0 0"/>
 
-        <Button x:Name="BtnPesquisar" Text="Pesquisar" />
+        <Picker x:Name="PKSX" Title="Sexo" HorizontalTextAlignment="Center" Margin="0 100"/>
 
-        <Button x:Name="BtnDeleteAll" Text="Deletar Todos" />
+        <Button x:Name="BtnPesquisar" Text="Pesquisar" Margin="10" CornerRadius="15"/>
+
+        <Button x:Name="BtnDeleteAll" Text="Deletar Todos" Margin="10" CornerRadius="15"/>
 
 
 
@@ -88,7 +87,9 @@
         <Picker
             x:Name="PickerSexoFiltro"
             Title="Filtrar por Sexo"
-            SelectedIndexChanged="PickerSexoFiltro_SelectedIndexChanged">
+            SelectedIndexChanged="PickerSexoFiltro_SelectedIndexChanged"
+            Margin="0 100"
+            HorizontalTextAlignment="Center">
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>M</x:String>

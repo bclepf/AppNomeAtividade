@@ -10,14 +10,15 @@
             <CollectionView x:Name="GrdNomesBr" VerticalOptions="FillAndExpand">
                 <CollectionView.Header>
                     <StackLayout>
-                        <Entry x:Name="MunicipioEntry" Placeholder="Insira o Município" />
+                        <Label Text="Insira um Município" HorizontalOptions="Center" FontAttributes="Bold" FontSize="18"/>
+                        <Entry x:Name="MunicipioEntry" Placeholder="Insira o Município" HorizontalTextAlignment="Center" Margin="0 100"/>
 
                         <StackLayout>
-                            <Label Text="Escolha uma opção:" />
-                            <StackLayout Orientation="Horizontal">
-                                <RadioButton Content="Todos" GroupName="SexoOpc" IsChecked="True"/>
-                                <RadioButton x:Name="SexoMRadioButton" Content="M" GroupName="SexoOpc"/>
-                                <RadioButton Content="F" GroupName="SexoOpc" x:Name="SexoFRadioButton"/>
+                            <Label Text="Escolha uma opção:" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="18"/>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <RadioButton Content="Todos" GroupName="SexoOpc" IsChecked="True" Margin="0 20"/>
+                                <RadioButton x:Name="SexoMRadioButton" Content="M" GroupName="SexoOpc" Margin="0 20"/>
+                                <RadioButton Content="F" GroupName="SexoOpc" x:Name="SexoFRadioButton" Margin="0 20"/> 
                                 
                             </StackLayout>
                         </StackLayout>

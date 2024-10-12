@@ -9,7 +9,6 @@ namespace AppNomesBr.Infrastructure.ExternalIntegrations.IBGE.Censos
         private readonly string? baseUrl = "api/v2/censos/nomes/";
         private readonly string rankingEndpoint = "ranking";
         private readonly string sexoSelecionado = "/?sexo=";
-        private readonly string municipioSelecionado = "&localidade=";
         private readonly HttpClient httpClient;
 
         public NomesApi(HttpClient httpClient)
